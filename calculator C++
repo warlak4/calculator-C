@@ -1,0 +1,129 @@
+#include <iostream>
+#include <cmath>
+
+int add(int x, int y) {
+   return x + y;
+}
+
+int subtract(int x, int y) {
+   return x - y;
+}
+
+int divide(int x, int y) {
+   if (y == 0) {
+       std::cout << "Ошибка! Деление на ноль." << std::endl;
+       return 0;
+   } else {
+       return x / y;
+   }
+}
+
+int multiply(int x, int y) {
+   return x * y;
+}
+
+int power(int base, int exponent) {
+   return std::pow(base, exponent);
+}
+
+double squareRoot(int x) {
+   if (x < 0) {
+       std::cout << "Ошибка! Невозможно извлечь квадратный корень из отрицательного числа." << std::endl;
+       return 0;
+   } else {
+       return std::sqrt(x);
+   }
+}
+
+double calculatePercentage(int number) {
+   return number * 0.01;
+}
+
+int factorial(int n) {
+   if (n <= 1) {
+       return 1;
+   } else {
+       return n * factorial(n - 1);
+   }
+}
+
+int main() {
+   int choice;
+   int x, y;
+
+   do {
+       std::cout << "Выберите операцию:" << std::endl;
+       std::cout << "1. Сложение" << std::endl;
+       std::cout << "2. Вычитание" << std::endl;
+       std::cout << "3. Частное" << std::endl;
+       std::cout << "4. Произведение" << std::endl;
+       std::cout << "5. Возведение в степень" << std::endl;
+       std::cout << "6. Нахождение квадратного корня" << std::endl;
+       std::cout << "7. Нахождение 1 процента от числа" << std::endl;
+       std::cout << "8. Найти факториал числа" << std::endl;
+       std::cout << "9. Выйти из программы" << std::endl;
+       std::cout << "Введите номер операции: ";
+       std::cin >> choice;
+
+       switch(choice) {
+           case 1:
+               std::cout << "Введите два числа для сложения: ";
+               std::cin >> x >> y;
+               std::cout << "Результат сложения: " << add(x, y) << std::endl;
+               break;
+
+           case 2:
+               std::cout << "Введите два числа для вычитания: ";
+               std::cin >> x >> y;
+               std::cout << "Результат вычитания: " << subtract(x, y) << std::endl;
+               break;
+
+           case 3:
+               std::cout << "Введите два числа для деления: ";
+               std::cin >> x >> y;
+               std::cout << "Результат деления: " << divide(x, y) << std::endl;
+               break;
+
+           case 4:
+               std::cout << "Введите два числа для умножения: ";
+               std::cin >> x >> y;
+               std::cout << "Результат умножения: " << multiply(x, y) << std::endl;
+               break;
+
+           case 5:
+               std::cout << "Введите число и степень: ";
+               std::cin >> x >> y;
+               std::cout << "Результат возведения в степень: " << power(x, y) << std::endl;
+               break;
+
+           case 6:
+               std::cout << "Введите число для извлечения квадратного корня: ";
+               std::cin >> x;
+               std::cout << "Результат извлечения квадратного корня: " << squareRoot(x) << std::endl;
+               break;
+
+           case 7:
+               std::cout << "Введите число для нахождения 1 процента: ";
+               std::cin >> x;
+               std::cout << "Результат нахождения 1 процента: " << calculatePercentage(x) << std::endl;
+               break;
+
+           case 8:
+               std::cout << "Введите число для вычисления факториала: ";
+               std::cin >> x;
+               std::cout << "Результат вычисления факториала: " << factorial(x) << std::endl;
+               break;
+
+           case 9:
+               std::cout << "Программа завершена." << std::endl;
+               break;
+
+           default:
+               std::cout << "Ошибка ввода! Введите корректный номер операции." << std::endl;
+       }
+
+       std::cout << std::endl;
+   } while (choice != 9);
+
+   return 0;
+}
